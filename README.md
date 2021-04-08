@@ -1,6 +1,6 @@
 # millionaire
 
-Riproduction of the famous tv game 'Who want to be a millionaire'.
+Riproduction of the famous tv game 'Who want to be a millionaire' using Vue Cli, html and CSS.
 The game is developed in 10 questions and only if you answer correctly to all of those you'll be a new millionaire!!! 
 
 ## Project setup
