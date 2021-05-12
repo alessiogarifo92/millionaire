@@ -20,7 +20,7 @@
         <h3
         v-for="(ans, ind) in questions[questionIndex].answers" :key="ind"
         @click="chooseAnswer(ind)"
-        :class="{ 'accendiamo' : clicked == ans.correct}">
+        :class="{ 'sbagliato' : clicked === ind , 'accendiamo' : clicked == ans.correct}">
         {{ans.name}}
       </h3>
       </div>
@@ -143,6 +143,7 @@ export default {
 
     chooseAnswer(ind){
       this.clicked = ind;
+      console.log(this.clicked);
       // this.questionIndex= this.questions.id;
       let cliccato = this.questions[this.questionIndex].answers[ind].correct;
 
@@ -187,6 +188,7 @@ export default {
 </script>
 
 <style media="screen">
+
   .home{
     color: white;
     display : flex;
@@ -229,6 +231,19 @@ export default {
     background: orange;
   }
 
+  .sbagliato{
+    background:red;
+    animation: sbaglio 0.7s;
+    animation-iteration-count: 5;
+  }
+
+  @keyframes sbaglio {
+  0% { background: orange; }
+  50% { background: orange; }
+  100% { background: red; }
+  }
+
+  /* cambiata disposizione perche se accendiamo era sopra alla fine dell animazione diventava rosso */
   .accendiamo{
     background: green;
     animation: blinking 0.3s;
@@ -264,6 +279,11 @@ export default {
     margin-top: 20px;
     color: white;
     font-size: 20px;
+  }
+
+  .wrong{
+    background: red;
+
   }
 
   #wrong{
